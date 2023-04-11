@@ -1,0 +1,226 @@
+\chapter{XEB的仿真}
+
+首先简单介绍,如何利用operator-sum的方式仿真错误对XEB的影响,再介绍利用数值仿真模拟泄露,iswap-like门的两个参数$\theta,\phi$,relaxation,dephasing的影响,最后理论讨论,读取测量错误对XEB的影响.
+
+首先说明一下理想的iSWAP-like门形式:
+\begin{equation}
+\centering 
+G=\left[
+\begin{array}{cccc}  
+1 & 0 & 0 & 0\\ 
+0 & cos(\theta) & -isin(\theta) & 0\\ 
+0 & -isin(\theta) & cos(\theta) & 0\\ 
+0 & 0 & 0 & e^{-i\phi}\\ 
+\end{array}
+\right ]
+\end{equation}
+其中$\theta=\frac{\pi}{2},\phi = \frac{\pi}{6}$为标准值,并以此作为XEB中理论值计算依据.在实际演化矩阵中加入各种错误,以模拟错误对XEB保真度的影响.利用SPB计算系统演化的purity,以此估计非相干错误造成的影响,并通过仿真验证这种理论的正确性.需要说明的是,在仿真中只考虑双比特门的错误,而单比特门是理想的..
+\section{operator-sum representation}
+在这次的仿真中,为了仿真退相干错误对保真度的影响,通过operator-sum representation方法将退相干错误引入门线路中.一般来说,对于系统正常的幺正演化,末态$\varepsilon(\rho) = U\rho U^{\dagger}$,当我们考虑系统与外界的耦合,也就是考虑系统的退相干的时候,系统的演化可以用operator-sum representation的形式表达出来\cite{nielsen2010quantum}.
+\begin{equation}
+\varepsilon(\rho) = \sum_{k}E_{k}\rho E^{\dagger}_{k}
+\end{equation}
+其中$E_{k}$是系统退相干演化算符,对于$E_{k}$的限定条件是$\sum_{k} E^{\dagger}_{k}E_{k} = I$.$\rho$是初态,$\varepsilon(\rho)$是演化末态
+
+在这里,我们只考虑relaxation和dephasing的影响,经过推导,我们可以得到relaxation对应$E_{k}$算符形式:
+\begin{equation}
+\centering 
+E_{1}=\left[
+\begin{array}{cc}  
+1 & 0 \\ 
+0 & \sqrt{1-\gamma} 
+\end{array}
+\right ]\quad\quad
+E_{2}=\left[
+\begin{array}{cc}  
+0 & \sqrt{\gamma} \\ 
+0 & 0 
+\end{array}
+\right ]		
+\end{equation}
+其中$\gamma$是失去一个光子的概率,在这里我们可以认为是$\frac{1}{T_{1}}$.除此之外,我们还可以得到dephasing对应$E_{k}$算符形式:
+\begin{equation}
+\centering 
+E_{3}=\left[
+\begin{array}{cc}  
+1 & 0 \\ 
+0 & \sqrt{1-\gamma_{\phi}} 
+\end{array}
+\right ]\quad\quad
+E_{4}=\left[
+\begin{array}{cc}  
+0 & 0 \\ 
+0 & \sqrt{\gamma_{\phi} }
+\end{array}
+\right ]		
+\end{equation}
+其中$\gamma_{\phi}$是光子被色散的概率,在这里我们可以认为是$\frac{2}{T_{\phi}}$.当我们同时考虑relaxation和dephasing时,将这四种$E_{k}$结合起来得到$E'_{1}=E_{1}E_{3}, E'_{2}=E_{1}E_{4}, E'_{3}=E_{2}E_{3}, E'_{4}=E_{2}E_{4}$,由此,我们就得到了单比特情况下,考虑relaxation和dephasing的$E'$,共有四个.如果考虑双比特,而且两个比特的退相干不相互影响,则系统的演化算符$K=E'_{i}\otimes E'_{j}$,i = 1,2,3,4,j = 1,2,3,4,共十六个.
+
+这是没有门操作时,系统单纯的退相干演化.当考虑门操作时,系统的演化可以写成如下形式:(以双比特为例)
+\begin{equation}
+\varepsilon(\rho) = \sum_{k=1}^{16}K_{k} G\rho G^{\dagger} K^{\dagger}_{k}
+\end{equation}
+其中$K_{k}$代表描述退相干的演化,G代表施加的理想门操作.这样我们就得到了考虑退相干的门操作后系统的态.
+
+这种方法本质上与使用蒙特卡洛方法一致,即取很多个线路,然后在每个量子门前随机加上relaxation或者dephasing的作用,最后对所有线路取平均,得到最终的演化末态,二者本质上是一致的,而且避免了取很多量子线路造成的时间损耗.
+
+\textcolor{red}{后面既考虑门操作又考虑退相干的演化形式是我的猜测,符合理论上的限制条件.至于这种仿真与实际近似程度,之前利用qutip模拟实际50个带退相干单比特门的量子动力学演化后的末态,与这种利用operator-sum形式的演化后的末态相比,保真度在0.972左右.通过改变$\gamma = k*\frac{1}{T_{1}},\gamma_{\phi}=k'*\frac{2}{T_{\phi}}$中k和k'的值,能够将保真度提高到极其接近于1,但是这个能达到1的k和k'值并不固定,线路改变也会改变最优k和k'值,这里模拟选用最简单的k=k'=1.}
+\section{泄露对XEB的影响}
+当我们在做iSWAP-like门的时候,11态可能会泄漏到02或20态.如果我们考虑这种情况,可以将仿真中模拟实际演化的矩阵形式写为:
+\begin{equation}
+\centering 
+G=\left[
+\begin{array}{cccc}  
+1 & 0 & 0 & 0\\ 
+0 & cos(\theta) & -isin(\theta) & 0\\ 
+0 & -isin(\theta) & cos(\theta) & 0\\ 
+0 & 0 & 0 & (1-leakage)e^{-i\phi}\\ 
+\end{array}
+\right ]
+\end{equation}
+其中leakage代表11态的泄露到计算空间外的程度.经过仿真后,双比特门的错误率$e_{d} = 1-p$与leakage的关系如下图\ref{leakage}所示:
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{error_leakage}
+	\caption{错误率与泄露的关系} 
+	\label{leakage}
+\end{figure}
+当leakage=0.014时,归一化与非归一化的拟合曲线如下图\ref{leakage_fit}所示:
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{leakage_fit}
+		\subcaption{非归一化的XEB和Purity对leakage的拟合}
+	\end{minipage}
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{leakage_fit_norm}
+		\subcaption{归一化的XEB和Purity对leakage的拟合}
+	\end{minipage}
+	
+	\caption{XEB和Purity对leakage的拟合} \label{leakage_fit}
+\end{figure}
+图中带有norm标志的是对每个random circuit的四个测量结果$P_{00},P_{01},P_{10},P_{11}$进行归一化.
+
+从图中我们可以分析出,对于非归一化的情况,无论是总错误还是非相干错误都随着leakage线性增长,斜率分别是0.4973,0.4831.当leakage在0.3以下时,二者几乎重合,当leakage大于0.3时,每个随机线路在深度比较高的,四个测量结果$P_{00},P_{01},P_{10},P_{11}$都已经接近于0了,拟合误差会比较大,二者出现了偏离.只看leakage比较小,误差比较小的时候,总错误与非相干错误是相同的,这在理论上是正确的.
+
+对于归一化的情况,我们可以看到XEB保真度随着leakage以极其缓慢的速度上升,斜率只有0.0106,而purity几乎随leakage不变.说明使用归一化的数据并不能有效提取出leakage引起的错误,leakage导致的错误被忽略了,所以使用归一化并不是一个好的数据处理方式.
+
+
+
+
+\section{$\theta$对XEB的影响}
+
+现在考虑实际演化$\theta$偏离$\frac{\pi}{2}$时,XEB保真度和Purity的变化.经过仿真后,双比特门的错误率$e_{d} = 1-p$与$\theta$偏移量的关系如下图\ref{theta}所示:
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{error_theta}
+	\caption{错误率与$\theta$的关系} 
+	\label{theta}
+\end{figure}
+当$\theta$=-0.1676弧度时,归一化与非归一化的拟合曲线如下图\ref{theta_fit}所示:
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{theta_fit}
+		\subcaption{非归一化的XEB和Purity对$\theta$的拟合}
+	\end{minipage}
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{theta_fit_norm}
+		\subcaption{归一化的XEB和Purity对$\theta$的拟合}
+	\end{minipage}
+	
+	\caption{XEB和Purity对$\theta$的拟合} \label{theta_fit}
+\end{figure}
+图中带有norm标志的是对每个random circuit的四个测量结果$P_{00},P_{01},P_{10},P_{11}$进行归一化.
+
+从图中我们可以分析出,对于非归一化的情况,XEB计算的错误率随偏移量以二次函数$0.8659x^{2}-0.0036x$形式变化,在$-0.25<\theta<0.25$的时候与数据符合很好,而purity计算的非相干错误为0,与理论符合.对于归一化的情况,由于不存在泄露,归一化与非归一化的结果相通,曲线是重合的.
+
+\section{$\phi$对XEB的影响}
+
+现在考虑实际演化$\phi$偏离$\frac{\pi}{6}$时,XEB保真度和Purity的变化.经过仿真后,双比特门的错误率$e_{d} = 1-p$与$\theta$偏移量的关系如下图\ref{phi}所示:
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{error_phi}
+		\subcaption{错误率与$\phi$的关系}
+		\label{phi}
+	\end{minipage}
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{phi_fit}
+		\subcaption{非归一化的XEB和Purity对$\phi$的拟合}
+		\label{phi_fit}
+	\end{minipage}
+	
+	\caption{} 
+\end{figure}
+
+当$\phi$=-0.3142弧度时,非归一化的拟合曲线如下图\ref{phi_fit}所示:
+
+从图中我们可以分析出,对于非归一化的情况,XEB计算的错误率随偏移量以二次函数$0.2057x^{2}-0.0024x-0.0007$形式变化,在$0.9<\theta<0.9$的时候与数据符合很好,而purity计算的非相干错误为0,与理论符合.对于归一化的情况,由于不存在泄露,归一化与非归一化的结果相通,曲线是重合的.
+
+\section{$\gamma$对XEB的影响}
+
+现在考虑在实际演化中加入relaxation时($\gamma \geq 0 ,\gamma_{phi}=0 $),XEB保真度和Purity的变化.经过仿真后,双比特门的错误率$e_{d} = 1-p$与$\gamma$的关系如下图\ref{gamma}所示:
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{error_gamma}
+		\subcaption{错误率与$\gamma$的关系}
+		\label{gamma}
+	\end{minipage}
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{gamma_fit}
+		\subcaption{非归一化的XEB和Purity对$\gamma$的拟合}
+		\label{gamma_fit}
+	\end{minipage}
+	
+	\caption{} 
+\end{figure}
+
+当$\gamma$=0.0140弧度时,非归一化的拟合曲线如下图\ref{gamma_fit}所示:
+
+从图中我们可以分析出,对于非归一化的情况,XEB算出的总错误率与SPB计算出的非相干错误率都随着$\gamma$线性变化,而且XEB和SPB的拟合曲线与数据的符合也是很好的,不存在很大的拟合误差.但是出现两个问题,第一个就是XEB算出的总错误率与SPB计算出的非相干错误率发生了偏移,一个拟合斜率是1.0606,另一个是1.3424.另一个问题就是SPB的曲线最后并没有趋近于0,其趋近的值随$\gamma$变化如下图\ref{b_gamma}所示:
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{b_gamma}
+	\caption{SPB趋近的值与relaxation rate的关系} 
+	\label{b_gamma}
+\end{figure}
+除了最前面由于错误率太小引起的拟合误差外,后面可以明显看出,随着$\gamma$的上升,SPB的趋近值在逐渐上涨.
+
+\textcolor{red}{对于第二个问题,我猜测应该是仿真结果中步长的问题,因为整个仿真是个离散的过程,态的演化最后可能会落不到原点,而是在原点附近波动,并且随着$gamma$的增大,每一步向中间靠近的步长也在增大,最终的波动也在增大.而SPB和XEB两种方法对这种波动的敏感度是不同的,XEB更多关心的是分布,$\overline{\sum_{q}p_{m}(q)[Dp_{s}(q)-1]}$只要最终测量结果$p_{m}$分布在$\frac{1}{D}$附近,即使有一点偏差也会在$[Dp_{s}(q)-1]$的作用下接近于0.而SPB关注的就是测量结果$p_{m}$的离散程度,微小的离散也会在结果中显示出来.}
+
+\textcolor{red}{这样就可以解释第一个问题了,由于最后趋近值的抬高,使得保真度下降,SPB测得的错误率抬高,比XEB测得的错误率大,并且随着$\gamma$的增大,二者的偏移也在增大,所以XEB计算出的错误应该是更准确的.但是这个理论只是猜测,仍要验证.}
+
+对于归一化的情况,由于不存在泄露,归一化与非归一化的结果相通,曲线是重合的.
+
+\section{$\gamma_{phi}$对XEB的影响}
+
+现在考虑在实际演化中加入dephasing时($\gamma_{phi} \geq 0 ,\gamma=0 $),XEB保真度和Purity的变化.经过仿真后,双比特门的错误率$e_{d} = 1-p$与$\gamma_{phi}$的关系如下图\ref{gamma_phi}所示:
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{error_gamma_phi}
+		\subcaption{错误率与$\gamma_{phi}$的关系}
+		\label{gamma_phi}
+	\end{minipage}
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{gammaphi_fit}
+		\subcaption{非归一化的XEB和Purity对$\gamma_{phi}$的拟合}
+		\label{gamma_phi_fit}
+	\end{minipage}
+	
+	\caption{} 
+\end{figure}
+
+当$\phi$=0.0200弧度时,归一化与非归一化的拟合曲线如下图\ref{gamma_phi_fit}所示:
+
+从图中我们可以分析出,对于非归一化的情况,XEB中计算出的总错误率与SPB中计算出的非相干错误几乎重合,而且均随着$\gamma_{\phi}$的增大而线性增大,拟合直线斜率分别为0.5389,0.5497,在$\gamma_{\phi}\leq0.05$的时候,二者基本重合,可以认为这时SPB测出来的错误就是非相干错误.对于归一化的情况,由于不存在泄露,归一化与非归一化的结果相通,曲线是重合的.
+
+$\gamma$和$gamma_{phi}$的结果与$\theta,\phi$的结果相比较,可以认定XEB测出的就是系统的总体错误,而SPB测出的就是总错误中的非相干部分.
+
+
+\section{制备和读取错误的影响} 
+制备和读取错误本质上是一致的,制备错误相当与在所有门线路之前随机加单比特X门,然后取平均,读取错误相当于在所有门线路之后随机加单比特X门,然后取平均.所以我们可以将其归为一类,就是制备读取错误,这样合起来对研究p的分布没有影响.
+
+对于平均制备读取错误的测量,我们可以随机将其制备成基矢q,然后直接对其进行测量,得到测量到q的概率为$p_{im}(q)$,然后对大量的q取平均,得到平均的$p_{im}$,由此我们可以得到包含错误的保真度F和单纯的线路保真度$F_{U}$之间的关系$F = F_{U}*p_{im}$.我们可以发现,引入制备和读取错误,仅仅是将XEB的保真度进行一个缩放,在量子门的校准中,对曲线拟合得到的保真度结果没有影响.

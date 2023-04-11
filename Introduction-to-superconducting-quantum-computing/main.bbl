@@ -1,0 +1,402 @@
+\bibpunct{[}{]}{,}{s}{,}{,}
+\begin{thebibliography}{53}
+\ifx\ustcjournal\undefined\newcommand\ustcjournal{\relax}\fi
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI: #1}\else
+  \providecommand{\doi}{DOI: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Braum{\"u}ller et~al.(2022)Braum{\"u}ller, Karamlou, Yanay, Kannan,
+  Kim, Kjaergaard, Melville, Niedzielski, Sung, Veps{\"a}l{\"a}inen,
+  et~al.]{braumuller2022probing}
+Braum{\"u}ller J, Karamlou A H, Yanay Y,  et~al.
+\newblock Probing quantum information propagation with out-of-time-ordered
+  correlators\null[J].
+\newblock \ustcjournal{Nature Physics}.
+\newblock 2022, 18 (2): 172--178.
+
+\bibitem[Arute et~al.(2019)Arute, Arya, Babbush, Bacon, Bardin, Barends,
+  Biswas, Boixo, Brandao, Buell, et~al.]{arute2019quantum}
+Arute F, Arya K, Babbush R,  et~al.
+\newblock Quantum supremacy using a programmable superconducting
+  processor\null[J].
+\newblock \ustcjournal{Nature}.
+\newblock 2019, 574 (7779): 505--510.
+
+\bibitem[Jurcevic et~al.(2021)Jurcevic, Javadi-Abhari, Bishop, Lauer, Bogorin,
+  Brink, Capelluto, G{\"u}nl{\"u}k, Itoko, Kanazawa,
+  et~al.]{jurcevic2021demonstration}
+Jurcevic P, Javadi-Abhari A, Bishop L S,  et~al.
+\newblock Demonstration of quantum volume 64 on a superconducting quantum
+  computing system\null[J].
+\newblock \ustcjournal{Quantum Science and Technology}.
+\newblock 2021, 6 (2): 025020.
+
+\bibitem[DiVincenzo(2000)]{divincenzo2000physical}
+DiVincenzo D P.
+\newblock The physical implementation of quantum computation\null[J].
+\newblock \ustcjournal{Fortschritte der Physik: Progress of Physics}.
+\newblock 2000, 48 (9-11): 771--783.
+
+\bibitem[Havl{\'\i}{\v{c}}ek et~al.(2019)Havl{\'\i}{\v{c}}ek, C{\'o}rcoles,
+  Temme, Harrow, Kandala, Chow, and Gambetta]{havlivcek2019supervised}
+Havl{\'\i}{\v{c}}ek V, C{\'o}rcoles A D, Temme K,  et~al.
+\newblock Supervised learning with quantum-enhanced feature spaces\null[J].
+\newblock \ustcjournal{Nature}.
+\newblock 2019, 567 (7747): 209--212.
+
+\bibitem[Quantum et~al.(2020)Quantum, Collaborators*†, Arute, Arya, Babbush,
+  Bacon, Bardin, Barends, Boixo, Broughton, Buckley, et~al.]{google2020hartree}
+Quantum G A, Collaborators*†, Arute F,  et~al.
+\newblock Hartree-fock on a superconducting qubit quantum computer\null[J].
+\newblock \ustcjournal{Science}.
+\newblock 2020, 369 (6507): 1084--1089.
+
+\bibitem[Erhard et~al.(2019)Erhard, Wallman, Postler, Meth, Stricker, Martinez,
+  Schindler, Monz, Emerson, and Blatt]{erhard2019characterizing}
+Erhard A, Wallman J J, Postler L,  et~al.
+\newblock Characterizing large-scale quantum computers via cycle
+  benchmarking\null[J].
+\newblock \ustcjournal{Nature Communications}.
+\newblock 2019, 10 (1): 1--7.
+
+\bibitem[Zhang et~al.(2017)Zhang, Pagano, Hess, Kyprianidis, Becker, Kaplan,
+  Gorshkov, Gong, and Monroe]{zhang2017observation}
+Zhang J, Pagano G, Hess P W,  et~al.
+\newblock Observation of a many-body dynamical phase transition with a 53-qubit
+  quantum simulator\null[J].
+\newblock \ustcjournal{Nature}.
+\newblock 2017, 551 (7682): 601--604.
+
+\bibitem[Zhong et~al.(2020)Zhong, Wang, Deng, Chen, Peng, Luo, Qin, Wu, Ding,
+  Hu, et~al.]{zhong2020quantum}
+Zhong H S, Wang H, Deng Y H,  et~al.
+\newblock Quantum computational advantage using photons\null[J].
+\newblock \ustcjournal{Science}.
+\newblock 2020, 370 (6523): 1460--1463.
+
+\bibitem[Zhong et~al.(2021)Zhong, Deng, Qin, Wang, Chen, Peng, Luo, Wu, Gong,
+  Su, et~al.]{zhong2021phase}
+Zhong H S, Deng Y H, Qin J,  et~al.
+\newblock Phase-programmable gaussian boson sampling using stimulated squeezed
+  light\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 2021, 127 (18): 180502.
+
+\bibitem[Semeghini et~al.(2021)Semeghini, Levine, Keesling, Ebadi, Wang,
+  Bluvstein, Verresen, Pichler, Kalinowski, Samajdar,
+  et~al.]{semeghini2021probing}
+Semeghini G, Levine H, Keesling A,  et~al.
+\newblock Probing topological spin liquids on a programmable quantum
+  simulator\null[J].
+\newblock \ustcjournal{Science}.
+\newblock 2021, 374 (6572): 1242--1247.
+
+\bibitem[Bernien et~al.(2017)Bernien, Schwartz, Keesling, Levine, Omran,
+  Pichler, Choi, Zibrov, Endres, Greiner, et~al.]{bernien2017probing}
+Bernien H, Schwartz S, Keesling A,  et~al.
+\newblock Probing many-body dynamics on a 51-atom quantum simulator\null[J].
+\newblock \ustcjournal{Nature}.
+\newblock 2017, 551 (7682): 579--584.
+
+\bibitem[Devoret et~al.(1985)Devoret, Martinis, and
+  Clarke]{devoret1985measurements}
+Devoret M H, Martinis J M, Clarke J.
+\newblock Measurements of macroscopic quantum tunneling out of the zero-voltage
+  state of a current-biased josephson junction\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 1985, 55 (18): 1908.
+
+\bibitem[Bouchiat et~al.(1998)Bouchiat, Vion, Joyez, Esteve, and
+  Devoret]{bouchiat1998quantum}
+Bouchiat V, Vion D, Joyez P,  et~al.
+\newblock Quantum coherence with a single cooper pair\null[J].
+\newblock \ustcjournal{Physica Scripta}.
+\newblock 1998, 1998 (T76): 165.
+
+\bibitem[Nakamura et~al.(1999)Nakamura, Pashkin, and
+  Tsai]{nakamura1999coherent}
+Nakamura Y, Pashkin Y A, Tsai J.
+\newblock Coherent control of macroscopic quantum states in a
+  single-cooper-pair box\null[J].
+\newblock \ustcjournal{Nature}.
+\newblock 1999, 398 (6730): 786--788.
+
+\bibitem[Vion et~al.(2002)Vion, Aassime, Cottet, Joyez, Pothier, Urbina,
+  Esteve, and Devoret]{vion2002manipulating}
+Vion D, Aassime A, Cottet A,  et~al.
+\newblock Manipulating the quantum state of an electrical circuit\null[J].
+\newblock \ustcjournal{Science}.
+\newblock 2002, 296 (5569): 886--889.
+
+\bibitem[Chiorescu et~al.(2003)Chiorescu, Nakamura, Harmans, and
+  Mooij]{chiorescu2003coherent}
+Chiorescu I, Nakamura Y, Harmans C M,  et~al.
+\newblock Coherent quantum dynamics of a superconducting flux qubit\null[J].
+\newblock \ustcjournal{Science}.
+\newblock 2003, 299 (5614): 1869--1871.
+
+\bibitem[Simmonds et~al.(2004)Simmonds, Lang, Hite, Nam, Pappas, and
+  Martinis]{simmonds2004decoherence}
+Simmonds R W, Lang K, Hite D A,  et~al.
+\newblock Decoherence in josephson phase qubits from junction
+  resonators\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 2004, 93 (7): 077003.
+
+\bibitem[Koch et~al.(2007)Koch, Terri, Gambetta, Houck, Schuster, Majer, Blais,
+  Devoret, Girvin, and Schoelkopf]{koch2007charge}
+Koch J, Terri M Y, Gambetta J,  et~al.
+\newblock Charge-insensitive qubit design derived from the cooper pair
+  box\null[J].
+\newblock \ustcjournal{Physical Review A}.
+\newblock 2007, 76 (4): 042319.
+
+\bibitem[Wu et~al.(2021)Wu, Bao, Cao, Chen, Chen, Chen, Chung, Deng, Du, Fan,
+  et~al.]{wu2021strong}
+Wu Y, Bao W S, Cao S,  et~al.
+\newblock Strong quantum computational advantage using a superconducting
+  quantum processor\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 2021, 127 (18): 180501.
+
+\bibitem[Place et~al.(2021)Place, Rodgers, Mundada, Smitham, Fitzpatrick, Leng,
+  Premkumar, Bryon, Vrajitoarea, Sussman, et~al.]{place2021new}
+Place A P, Rodgers L V, Mundada P,  et~al.
+\newblock New material platform for superconducting transmon qubits with
+  coherence times exceeding 0.3 milliseconds\null[J].
+\newblock \ustcjournal{Nature Communications}.
+\newblock 2021, 12 (1): 1--6.
+
+\bibitem[Wang et~al.(2021)Wang, Li, Xu, Li, Wang, Yang, Mi, Liang, Su, Yang,
+  Wang, Wang, Li, Chen, Li, Linghu, Han, Zhang, Feng, Song, Ma, Zhang, Wang,
+  Zhao, Liu, Xue, Jin, and Yu]{wang2021transmon}
+Wang C, Li X, Xu H,  et~al.
+\newblock Transmon qubit with relaxation time exceeding 0.5
+  milliseconds\null[M].
+\newblock [S.l.]: [s.n.], 2021.
+
+\bibitem[Zhu et~al.(2022)Zhu, Cao, Chen, Chen, Chen, Chung, Deng, Du, Fan,
+  Gong, et~al.]{zhu2022quantum}
+Zhu Q, Cao S, Chen F,  et~al.
+\newblock Quantum computational advantage via 60-qubit 24-cycle random circuit
+  sampling\null[J].
+\newblock \ustcjournal{Science Bulletin}.
+\newblock 2022, 67 (3): 240--245.
+
+\bibitem[Krinner et~al.(2021)Krinner, Lacroix, Remm, Paolo, Genois, Leroux,
+  Hellings, Lazar, Swiadek, Herrmann, Norris, Andersen, Müller, Blais,
+  Eichler, and Wallraff]{krinner2021realizing}
+Krinner S, Lacroix N, Remm A,  et~al.
+\newblock Realizing repeated quantum error correction in a distance-three
+  surface code\null[M].
+\newblock [S.l.]: [s.n.], 2021.
+
+\bibitem[Guo et~al.(2021{\natexlab{a}})Guo, Cheng, Li, Xu, Zhang, Wang, Song,
+  Liu, Ren, Dong, et~al.]{guo2021stark}
+Guo Q, Cheng C, Li H,  et~al.
+\newblock Stark many-body localization on a superconducting quantum
+  processor\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 2021{\natexlab{a}}, 127 (24): 240502.
+
+\bibitem[Li et~al.(2019)Li, Castellano, Wang, Wu, Gong, Yan, Rong, Deng, Zha,
+  Guo, et~al.]{li2019realisation}
+Li S, Castellano A D, Wang S,  et~al.
+\newblock Realisation of high-fidelity nonadiabatic cz gates with
+  superconducting qubits\null[J].
+\newblock \ustcjournal{npj Quantum Information}.
+\newblock 2019, 5 (1): 1--7.
+
+\bibitem[Walter et~al.(2017)Walter, Kurpiers, Gasparinetti, Magnard,
+  Poto{\v{c}}nik, Salath{\'e}, Pechal, Mondal, Oppliger, Eichler,
+  et~al.]{walter2017rapid}
+Walter T, Kurpiers P, Gasparinetti S,  et~al.
+\newblock Rapid high-fidelity single-shot dispersive readout of superconducting
+  qubits\null[J].
+\newblock \ustcjournal{Physical Review Applied}.
+\newblock 2017, 7 (5): 054020.
+
+\bibitem[Sunada et~al.(2022)Sunada, Kono, Ilves, Tamate, Sugiyama, Tabuchi, and
+  Nakamura]{sunada2022fast}
+Sunada Y, Kono S, Ilves J,  et~al.
+\newblock Fast readout and reset of a superconducting qubit coupled to a
+  resonator with an intrinsic purcell filter\null[M].
+\newblock [S.l.]: [s.n.], 2022.
+
+\bibitem[Kelly et~al.(2015)Kelly, Barends, Fowler, Megrant, Jeffrey, White,
+  Sank, Mutus, Campbell, Chen, et~al.]{kelly2015state}
+Kelly J, Barends R, Fowler A G,  et~al.
+\newblock State preservation by repetitive error detection in a superconducting
+  quantum circuit\null[J].
+\newblock \ustcjournal{Nature}.
+\newblock 2015, 519 (7541): 66--69.
+
+\bibitem[Yan et~al.(2019)Yan, Zhang, Gong, Wu, Zheng, Li, Wang, Liang, Lin, Xu,
+  et~al.]{yan2019strongly}
+Yan Z, Zhang Y R, Gong M,  et~al.
+\newblock Strongly correlated quantum walks with a 12-qubit superconducting
+  processor\null[J].
+\newblock \ustcjournal{Science}.
+\newblock 2019, 364 (6442): 753--756.
+
+\bibitem[Zha et~al.(2020)Zha, Bastidas, Gong, Wu, Rong, Yang, Ye, Li, Zhu,
+  Wang, et~al.]{zha2020ergodic}
+Zha C, Bastidas V, Gong M,  et~al.
+\newblock Ergodic-localized junctions in a periodically driven spin
+  chain\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 2020, 125 (17): 170503.
+
+\bibitem[Chen et~al.(2021)Chen, Sun, Gong, Zhu, Zhang, Wu, Ye, Zha, Li, Guo,
+  et~al.]{chen2021observation}
+Chen F, Sun Z H, Gong M,  et~al.
+\newblock Observation of strong and weak thermalization in a superconducting
+  quantum processor\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 2021, 127 (2): 020602.
+
+\bibitem[Chow et~al.(2021)Chow, Dial, and Gambetta]{IBMQuantum2022}
+Chow J, Dial O, Gambetta J.
+\newblock Ibm quantum breaks the 100-qubit processor barrier\null[M].
+\newblock [S.l.]: [s.n.], 2021.
+
+\bibitem[Mallek et~al.(2021)Mallek, Yost, Rosenberg, Yoder, Calusine, Cook,
+  Das, Day, Golden, Kim, et~al.]{mallek2021fabrication}
+Mallek J L, Yost D R W, Rosenberg D,  et~al.
+\newblock Fabrication of superconducting through-silicon vias\null[M].
+\newblock [S.l.]: [s.n.], 2021.
+
+\bibitem[Rosenberg et~al.(2019)Rosenberg, Weber, Conway, Yost, Mallek,
+  Calusine, Das, Kim, Schwartz, Woods, et~al.]{rosenberg20193d}
+Rosenberg D, Weber S, Conway D,  et~al.
+\newblock 3d integration and packaging for solid-state qubits\null[M].
+\newblock [S.l.]: [s.n.], 2019.
+
+\bibitem[Vahidpour et~al.(2017)Vahidpour, O'Brien, Whyland, Angeles, Marshall,
+  Scarabelli, Crossman, Yadav, Mohan, Bui,
+  et~al.]{vahidpour2017superconducting}
+Vahidpour M, O'Brien W, Whyland J T,  et~al.
+\newblock Superconducting through-silicon vias for quantum integrated
+  circuits\null[M].
+\newblock [S.l.]: [s.n.], 2017.
+
+\bibitem[Guo et~al.(2021{\natexlab{b}})Guo, Zhao, and Huang]{guo2021verifying}
+Guo C, Zhao Y, Huang H L.
+\newblock Verifying random quantum circuits with arbitrary geometry using
+  tensor network states algorithm\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 2021{\natexlab{b}}, 126 (7): 070502.
+
+\bibitem[Josephson(1962)]{josephson1962possible}
+Josephson B D.
+\newblock Possible new effects in superconductive tunnelling\null[J].
+\newblock \ustcjournal{Physics Letters}.
+\newblock 1962, 1 (7): 251--253.
+
+\bibitem[Anderson et~al.(1963)Anderson and Rowell]{anderson1963probable}
+Anderson P W, Rowell J M.
+\newblock Probable observation of the josephson superconducting tunneling
+  effect\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 1963, 10 (6): 230.
+
+\bibitem[Clarke et~al.(2003)Clarke, Clarke, and Braginski]{clarke2003squid}
+Clarke J, Clarke J, Braginski A I.
+\newblock The SQUID Handbook: Fundamentals and Technology of SQUIDs and SQUID
+  Systems: volume~1\null[M].
+\newblock [S.l.]: Wiley-Vch, 2003.
+
+\bibitem[Pashkin et~al.(2003)Pashkin, Yamamoto, Astafiev, Nakamura, Averin, and
+  Tsai]{pashkin2003quantum}
+Pashkin Y A, Yamamoto T, Astafiev O,  et~al.
+\newblock Quantum oscillations in two coupled charge qubits\null[J].
+\newblock \ustcjournal{Nature}.
+\newblock 2003, 421 (6925): 823--826.
+
+\bibitem[Barends et~al.(2013)Barends, Kelly, Megrant, Sank, Jeffrey, Chen, Yin,
+  Chiaro, Mutus, Neill, et~al.]{barends2013coherent}
+Barends R, Kelly J, Megrant A,  et~al.
+\newblock Coherent josephson qubit suitable for scalable quantum integrated
+  circuits\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 2013, 111 (8): 080502.
+
+\bibitem[Bertet et~al.(2005)Bertet, Chiorescu, Burkard, Semba, Harmans,
+  DiVincenzo, and Mooij]{bertet2005dephasing}
+Bertet P, Chiorescu I, Burkard G,  et~al.
+\newblock Dephasing of a superconducting qubit induced by photon noise\null[J].
+\newblock \ustcjournal{Physical Review Letters}.
+\newblock 2005, 95 (25): 257002.
+
+\bibitem[Kumar et~al.(2016)Kumar, Sendelbach, Beck, Freeland, Wang, Wang,
+  Clare, Wu, Pappas, and McDermott]{kumar2016origin}
+Kumar P, Sendelbach S, Beck M,  et~al.
+\newblock Origin and reduction of 1/f magnetic flux noise in superconducting
+  devices\null[J].
+\newblock \ustcjournal{Physical Review Applied}.
+\newblock 2016, 6 (4): 041001.
+
+\bibitem[Krinner et~al.(2019)Krinner, Storz, Kurpiers, Magnard, Heinsoo,
+  Keller, Luetolf, Eichler, and Wallraff]{krinner2019engineering}
+Krinner S, Storz S, Kurpiers P,  et~al.
+\newblock Engineering cryogenic setups for 100-qubit scale superconducting
+  circuit systems\null[J].
+\newblock \ustcjournal{EPJ Quantum Technology}.
+\newblock 2019, 6 (1): 2.
+
+\bibitem[Martinis et~al.(2014)Martinis and Megrant]{martinis2014ucsb}
+Martinis J M, Megrant A.
+\newblock Ucsb final report for the csq program: Review of decoherence and
+  materials physics for superconducting qubits\null[M].
+\newblock [S.l.]: [s.n.], 2014.
+
+\bibitem[Zhou et~al.(2021)Zhou, Zhang, Yin, Huai, Gu, Xu, Allcock, Liu, Xi, Yu,
+  et~al.]{zhou2021rapid}
+Zhou Y, Zhang Z, Yin Z,  et~al.
+\newblock Rapid and unconditional parametric reset protocol for tunable
+  superconducting qubits\null[J].
+\newblock \ustcjournal{Nature Communications}.
+\newblock 2021, 12 (1): 5924.
+
+\bibitem[Magnard et~al.(2018)Magnard, Kurpiers, Royer, Walter, Besse,
+  Gasparinetti, Pechal, Heinsoo, Storz, Blais, et~al.]{magnard2018fast}
+Magnard P, Kurpiers P, Royer B,  et~al.
+\newblock Fast and unconditional all-microwave reset of a superconducting
+  qubit\null[J].
+\newblock \ustcjournal{Physical review letters}.
+\newblock 2018, 121 (6): 060502.
+
+\bibitem[Whaley et~al.(1984)Whaley and Light]{whaley1984rotating}
+Whaley K, Light J.
+\newblock Rotating-frame transformations: A new approximation for multiphoton
+  absorption and dissociation in laser fields\null[J].
+\newblock \ustcjournal{Physical Review A}.
+\newblock 1984, 29 (3): 1188.
+
+\bibitem[Sank(2014)]{sank2014fast}
+Sank D T.
+\newblock Fast, Accurate State Measurement in Superconducting Qubits\null[D]:
+  [PhD].
+\newblock [S.l.]: University of California, Santa Barbara, 2014.
+
+\bibitem[Pozar(2011)]{pozar2011microwave}
+Pozar D M.
+\newblock Microwave engineering\null[M].
+\newblock [S.l.]: John wiley \& sons, 2011.
+
+\bibitem[Mazin(2005)]{mazin2005microwave}
+Mazin B A.
+\newblock Microwave kinetic inductance detectors\null[M].
+\newblock [S.l.]: California Institute of Technology, 2005.
+
+\bibitem[Megrant et~al.(2012)Megrant, Neill, Barends, Chiaro, Chen, Feigl,
+  Kelly, Lucero, Mariantoni, O’Malley, et~al.]{megrant2012planar}
+Megrant A, Neill C, Barends R,  et~al.
+\newblock Planar superconducting resonators with internal quality factors above
+  one million\null[J].
+\newblock \ustcjournal{Applied Physics Letters}.
+\newblock 2012, 100 (11): 113510.
+
+\end{thebibliography}

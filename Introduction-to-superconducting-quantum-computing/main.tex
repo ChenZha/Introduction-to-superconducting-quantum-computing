@@ -1,0 +1,38 @@
+\documentclass[doctor,12pt]{ustcthesis}
+% bachelor|master|doctor
+\usepackage{ustcextra}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,graphics,graphicx,epsfig,bbm}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\graphicspath{{figures/}}
+%\bibliographystyle{ustcauthoryear}
+\bibliographystyle{ustcnumerical}
+%\bibliographystyle{unsrt}
+\newcommand{\bra}[1]{\left<#1\right|}
+\newcommand{\ket}[1]{\left|#1\right>}
+
+\title{超导量子计算的基本原理}
+\author{ChenZha}
+\submitdate{03, 11,2023}
+
+%\ensecrettext{Confidential\quad Less than or equal to 20 years}  % Internal|Secret|Confidential
+\begin{document}
+	
+	\maketitle
+	\frontmatter
+	\tableofcontents
+	\mainmatter
+	\input{chapters/intro}
+	\input{chapters/theory}
+	%\input{chapters/Simulation}
+	%\input{chapters/experiment}
+	\bibliography{bib/ustc}
+	
+
+	
+
+	
+\end{document}
+

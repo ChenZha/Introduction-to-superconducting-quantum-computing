@@ -1,0 +1,178 @@
+\chapter{XEB的理论部分}
+本章主要讲述XEB的理论部分,证明为何可以利用XEB来进行量子线路保真度的估计,以及在什么条件下XEB有效,什么条件下失效.还会简要介绍一下相关的理论背景
+\section{XEB的理论推导}
+
+\subsection{Porter-Thomas distribution}
+在介绍XEB之前,首先介绍XEB中需要用到的一个基础理论Porter-Thomas distribution: 在一个D维的希尔伯特空间中,均匀选取N个态矢$\left| q_{i} \right\rangle,i = 1,2,\cdots,N$,这N个态矢分别对D个测量基矢$\left| q_{j} \right\rangle,j = 1,2,\cdots,D$投影,共有N*D个概率$p^{i}_{j}$.对每一个基矢D,这N个态矢对其投影概率$p^{i}_{j}(i = 1,2,\cdots,N)$的分布满足Porter-Thomas distribution:
+\begin{equation}
+Pr(p) = (D-1)(1-p)^{D-2}
+\end{equation}
+当$D\gg1$时,这个分布可近似为$Pr(p) = De^{-Dp}$.由于这D种概率都满足相同的Porter-Thomas分布,所以合起来的N*D个概率也符合Porter-Thomas分布
+
+XEB理论推导理论值利用的就是这个分布,以双比特为例,利用800个random-circuit生成N个4维希尔伯特空间上的均匀分布态矢,分别测量得在$\ket{00},\ket{01},\ket{10},\ket{11}$四个基矢上投影的概率$P_{00},P_{01},P_{10},P_{11}$,这样4种概率p服从Porter-Thomas分布,如下图\ref{fig:PT}所示.将整个4*800个概率合在一起,其分布亦为Porter-Thomas分布,如下图\ref{fig:PT all}所示.以此为基础,就可以推导出XEB中$p_{s}$的理论值,在实验中,需要足够多的随机线路和足够长的线路,整个分布才会达到.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{P00}
+		\subcaption{00态测量概率分布}
+	\end{minipage}
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{P01}
+		\subcaption{01态测量概率分布}
+	\end{minipage}
+	\vfill
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{P10}
+		\subcaption{10态测量概率分布}
+	\end{minipage}
+	\begin{minipage}{0.48\linewidth}
+		\includegraphics[width=7.0cm]{P11}
+		\subcaption{11态测量概率分布}
+	\end{minipage}
+
+	\caption{各基矢测量概率分布} \label{fig:PT}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.65\textwidth]{P_all}
+	\caption{总测量概率分布} 
+	\label{fig:PT all}
+\end{figure}
+
+
+\subsection{少数比特的XEB}
+对于少数比特,XEB主要是用来标定比特门的保真度的.以双比特门标定为例,具体线路如下图\ref{fig1}所示.若假设经过一个,由两个已标定单比特门和一个待标定双比特门构成的cycle后,体系的实际密度矩阵为$\rho_{U}=p\left| \Psi_{U} \right\rangle \left\langle  \Psi_{U} \right| + (1-p)\chi_{U} $,其中$\left| \Psi_{U} \right\rangle$是经过这个这个cycle后理论的态矢;p就是经过一个cycle后,体系不发生错误的概率;$\chi_{U}$是实际密度中,所有偏离理论密度矩阵的部分,即发生的错误,性质有两个:
+
+\begin{itemize}
+	\item 迹为1,即$Tr(\chi_{U}) = 1$
+	
+	\item 与理论末态$\ket{\Psi_{U}}$交叠随维度的增大而降低,即$Tr(\ket{\Psi_{U}}\bra{\Psi_{U}} \chi_{U} ) \propto \frac{1}{D}$
+\end{itemize}
+
+
+
+经过m个cycle后,体系的密度矩阵可以写成$\rho_{m}=p^{m} \left| \Psi^{m}_{U} \right\rangle \left\langle  \Psi^{m}_{U} \right| +(1-p^{m})\chi^{m}_{U} $,这样测得为计算基矢q的概率为$p_{m}(q) = \left\langle q \right|\rho_{m}\left| q \right\rangle=p^{m} p_{s}(q) + (1-p^{m}) \left\langle q \right|\chi^{m}_{U} \left| q \right\rangle $,其中$p_{m}(q)$是包含错误的演化后,测得计算基矢q的概率,$p_{s}(q)$是理想演化后测得计算基矢q的概率,这是利用矩阵乘法计算出来的;$\chi^{m}_{U}$是错误的矩阵,限制条件与$\chi_{U}$相同.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.65\textwidth]{XEB_2circuit.png}
+	\caption{双比特门XEB标定流程
+	} 
+	\label{fig1}
+\end{figure}
+\subsubsection{公式推导}
+这里需要引入一个很重要的公式:
+\begin{equation}
+	\overline{\sum_{q\in \left\lbrace 0,1 \right\rbrace ^{n}}f(p_{s}(q)) \bra{q} \chi_{U} \ket{q}}=\sum_{q\in \left\lbrace 0,1 \right\rbrace ^{n}}\dfrac{\overline{f(p_{s}(q))}}{D}+\epsilon
+\end{equation}
+其中n为比特数目, $D = 2^{n}$是希尔伯特空间的维度, $\epsilon \in O(\frac{1}{\sqrt{S}})$, S为所取的随机线路数目.要想使得这个公式成立,需要有两个假设:
+\begin{itemize}
+\item 经过随机线路的平均之后,体系整体演化符合depolarizing model,即错误的演化矩阵$\chi_{U}$是各项相等的对角矩阵$\overline{\chi_{U}} = \frac{I}{D}$
+
+\item 理想末态$\ket{\Psi_{U}}$在基矢q上投影的概率$p_{s}(q)$与纯错误密度矩阵在基矢q上的投影$\bra{q} \chi_{U} \ket{q}$是不相关的,即$\overline{f(p_{s}(q)) \bra{q} \chi_{U} \ket{q}}=\overline{f(p_{s}(q))}* \overline{\bra{q} \chi_{U} \ket{q}}$
+\end{itemize}
+第一个假设可认为是均匀分布在希尔伯特空间中的初态,其经过含有错误的演化后,其错误密度矩阵$\overline{\chi_{U}}$的非对角项相互抵消,对角项各个相等,整体行为近似于depolarizing model,近似误差$\epsilon \in O(\frac{1}{\sqrt{S}})$. 第二个假设已经被使用使用模拟验证过了\cite{boixo2018characterizing}.
+
+我们选用线性XEB$f(p_{s}(q)) = Dp_{s}(q)-1$来估计$p^{m}$,计算其在random circuits和对应测量结果下的平均值$\overline{\left\langle Dp_{s}(q)-1 \right\rangle }$,其中横线代表对random circuits进行平均,尖括号代表对测量结果进行采样平均,利用上面的公式2.2和上面$p_{m}(q)$的定义可以得到:
+\begin{equation}
+\overline{\left\langle Dp_{s}(q)-1 \right\rangle } = \overline{\sum_{q}p_{m}(q)[Dp_{s}(q)-1]} = p^{m}\sum_{q}[D\overline{p^{2}_{s}(q)}-1]
+\end{equation}
+最终可以的到$p^{m}$的无偏估计:
+\begin{equation}
+ p^{m} = \dfrac{\overline{\left\langle Dp_{s}(q)-1 \right\rangle }}{\sum_{q}[D\overline{p^{2}_{s}(q)}-1]}
+\end{equation}
+其中$p_{s}$利用理论矩阵相乘计算得到的理论概率,$\overline{\left\langle Dp_{s}(q)-1 \right\rangle }$可以通过实验测得$p_{m}$计算出. 这样就可以得到第m个cycle时,线路的保真度,再利用$F = a*p^{m}+b$函数对数据进行拟合,这样我们就可以得到每一个cycle的保真度p.
+
+对于$f(p_{s}(q))$的选取,理论上可以选择任意一种函数形式,按照上面的如果选择$f(p_{s}(q)) = log(p_{s}(q))$, 得到$p^{m}$的形式为:
+\begin{equation}
+	\alpha = \dfrac{[-\frac{1}{D}\sum_{q}\overline{log p_{s}(q)}]-[\sum_{q}p_{m}(q)\overline{log p_{s}(q)}]}{[-\frac{1}{D}\sum_{q}\overline{log p_{s}(q)}]-[\sum_{q}\overline{p_{s}(q)log p_{s}(q)}]}
+\end{equation}
+除此之外,选用Heavy Output Generation这种阶跃函数也是可以的.在数值模拟中,线性形式,对数形式, Heavy Output Generation 形式得到的结果$p^{m}$都是基本相等的,可以说是等价的,只是方差略有差别\cite{arute2019quantum},对误差的敏感度也不同.
+\subsubsection{门错误率的计算}
+
+通过上面的方法,测量不同cycle m下的保真度$p^{m}$,通过函数$F = a*p^{m}+b$拟合曲线可以得到一个cycle里门的保真度p,这样就可以得到错误率r = 1-p,这是depolarizing model下的错误率,但是depolarizing model下的错误率是与维度相关的,所以不同维度的错误率是不能相减的,要转换成与维度不相关pauli error后,才可以用整个cycle的pauli error减去两个单比特门pauli error,得到双比特门的pauli error,转换关系如下图\ref{errormodel}所示\cite{arute2019quantum}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.85\textwidth]{errormodel.png}
+	\caption{各种error model转换关系} 
+	\label{errormodel}
+\end{figure}
+
+
+
+\subsubsection{Speckle purity benchmarking (SPB)}
+上面介绍的XEB方法,计算出的错误率是包含所有错误的,例如相干的控制错误,非相干的退相干,泄露错误等等,而在实验中,我们有时候需要将相干错误与非相干错误分离开,得到单纯的退相干错误和泄露错误,这时就需要使用speckle purity benchmarking (SPB)来测量出系统的纯度(Purity),这样就可以分离出非相干错误.
+
+首先我们定义纯度,当完全混态时,系统的纯度为0;当系统为纯态时,系统的纯度为1.这样我们可以根据$Tr(\rho^{2})$来定义纯度:
+\begin{equation}
+Purity = \frac{D}{D-1}[Tr(\rho^{2})-\frac{1}{D}]
+\end{equation}
+
+在random circuits中,系统的平均演化是depolarizing形式的演化$\rho=p \ket{\Psi}  \bra{\Psi}+(1-p)\frac{I}{D}$, 这样我们上面定义的纯度$Purity = p^{2}$,所以我们的目标就是如何利用XEB的原始数据得到$p^{2}$.
+
+根据上面p和Purity的关系,当整个体系平均退化到最大混态$\frac{I}{D}$时,$purity=p^{2}=0$,测量得到的所有p均为$\frac{1}{D}$,平均值为$\frac{1}{D}$,方差为0;当没有退相干影响,体系状态为随机选取的$\ket{\Psi}$时,$purity=p^{2}=1$,这时,如果random circuits数目m够多,线路深度也足够深,那么这m*D个p所呈现的分布为Porter-Thomas distribution,通过这个分布我们就可以算出p的平均值$\overline{p} = \frac{1}{D}$,p的方差$Var(P) = \dfrac{D-1}{D^{2}(D+1)}$.所以受到depolarizing影响后,整个体系测量p从Porter-Thomas分布逐渐收缩到$\frac{1}{D}$的$\delta$分布,方差也以$p^{2}$为倍数,从$Var(P) = \dfrac{D-1}{D^{2}(D+1)}$变为0,这样我们就可以得到:
+\begin{equation}
+Purity = p^{2} = Var(P_{m})\dfrac{D^{2}(D+1)}{D-1}
+\end{equation}
+从SPB,我们可以得到只考虑非相干错误的保真度$F_{SPB}=\sqrt{Purity}=p$
+
+\textcolor{red}{ 问题在于,为何这个得到的结果就是只有非相干错误的保真度,这里面用到的depolarizing model和上面XEB中的使用的depolarizing model有什么区别}
+
+\subsection{多数比特的XEB}
+对于多数比特,最终的演化末态为:$\rho_{U} = F\ket{\Psi_{U}}\bra{\Psi_{U}}+(1-F)\chi_{U}$,在这里线路保真度$\tilde{F} = \bra{\Psi_{U}} \rho_{U} \ket{\Psi_{U}}$与depolarizing model的保真度F差距在$\frac{1}{D}$的量级,非常小,所以可以忽略二者差距.
+
+除此之外,对于公式2.2,在多数比特情况下也有了改变:
+\begin{equation}
+\sum_{q\in \left\lbrace 0,1 \right\rbrace ^{n}}f(p_{s}(q)) \bra{q} \chi_{U} \ket{q}=\sum_{q\in \left\lbrace 0,1 \right\rbrace ^{n}}\dfrac{f(p_{s}(q))}{D}+\epsilon
+\end{equation}
+其中$\epsilon \in O(\frac{1}{\sqrt{D}})$.所以对于多数比特情况,并不需要很多的random circuit进行平均,只要保真维数够大,$\epsilon \ll F$即可.这个公式已经被数值计算验证过了\cite{arute2019quantum},只要比特数目足够多的,线路足够长(大于11)误差就已经足够小了.
+
+剩余的计算过程与少数比特数目情况相同.这样就可以得到多比特长线路的保真度F
+
+
+
+\subsection{XEB理论值计算}
+以线性XEB为例,计算当系统演化到某些特定分布时,线性XEB的值.因为在计算XEB时,需要知道系统实际测量结果$p_{m}$的分布,所以一般我们只能计算系统演化到完全非相干态,或者实际分布与理论分布相同这种理想情况下,系统的XEB的值.而错误对$p_{m}$的分布的影响未知,所以我们准备利用仿真的方式评估错误对XEB的影响.
+
+当线路中每一部分都是理想的时候,末态每个基矢下的测量结果$p_{m}(q)$与$p_{s}(q)$相同,分布也同为Porter-Thomas分布,以此我们可以计算得到公式2.4的分子部分:
+\begin{equation}
+\begin{split}
+\overline{\left\langle Dp_{s}(q)-1 \right\rangle } &= \overline{\sum_{q}p_{s}(q)[Dp_{s}(q)-1]} \\
+&=D\int_{0}^{1}p(Dp-1)Pr(p)dp=\frac{D-1}{D+1}
+\end{split}
+\end{equation}
+除此之外,我门也可以算出2.4的分母部分:
+\begin{equation}
+\sum_{q}[D\overline{p^{2}_{s}(q)}-1] =D*D\int_{0}^{1}p^{2}Pr(p)dp-1=\frac{D-1}{D+1}
+\end{equation}
+由此,我们可以得到,当线路中每一部分都是理想的时候,线路保真度$F = \frac{D-1}{D+1}/\frac{D-1}{D+1}=1$
+
+
+当整个系统都已经平均退化到最大混态$\frac{I}{D}$的时候,测量概率的分布是$\delta(p-\frac{1}{D})$,即测量得到的概率$p_{m}$均为$\frac{1}{D}$,这时分母部分的值不变,分子部分的值为:
+\begin{equation} 
+\begin{split} 
+
+\end{split} 
+\end{equation}
+所以线路的保真度$F=0$,这是两个极端情况下的线路保真度,与整个空间维度不相关.
+
+从上面的推导过程可以得知,只要最终对每个基矢投影的概率是相同的,最后XEB的曲线就会归到0,也就说,在门标定时,即使有泄露,只要保证最终在00,01,10,11上投影概率相同,那么XEB曲线就可以归为0.
+
+至于更一般的情况,例如一些常见错误对XEB保真度的结果的影响,我们需要知道每个基矢投影概率的变化,以及总体概率分布的变化,这个是很难理论计算出来的,所以准备利用operator-sum的方法,仿真各种错误对XEB结果的影响.
+
+
+\subsection{多数比特线路测量bit string的概率分布} 
+当系统经过一个多比特线路后,其XEB保真度为F,对末态进行$N_{s}$次测量,就会得到$N_{s}$个bit string,进行统计,就会得到某些概率p,这些概率p也是服从某些概率分布的.
+当我们选择线性XEB保真度,p服从概率分布: 
+\begin{equation} 
+P_{l}(x|F) = (Fx+(1-F))e^{-x} 
+\end{equation} 
+其中x=Dp.
+当我们选择对数XEB保真度,p服从概率分布: 
+\begin{equation} 
+P_{c}(x|F) = (1+F(e^{x}-1))e^{x-e^{x}} 
+\end{equation} 
+其中x=ln(Dp).

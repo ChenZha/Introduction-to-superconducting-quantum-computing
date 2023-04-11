@@ -1,0 +1,33 @@
+\contentsline {chapter}{\numberline {第1章\hspace {.3em}}超导量子比特的基本原理}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}超导量子计算的历史}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}超导量子计算系统的结构}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}超导量子处理器}{4}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}LC谐振电路的量子化}{4}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}超导约瑟夫森结}{5}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}传输子超导量子比特}{7}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}超导量子比特间的相互耦合}{10}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}其他形式的超导量子比特}{11}{subsection.1.3.5}%
+\contentsline {subsubsection}{\numberline {1.3.5.1}Three-junction flux qubit}{12}{subsubsection.1.3.5.1}%
+\contentsline {subsubsection}{\numberline {1.3.5.2}C-shunt flux qubit }{12}{subsubsection.1.3.5.2}%
+\contentsline {subsubsection}{\numberline {1.3.5.3}Fluxonium}{13}{subsubsection.1.3.5.3}%
+\contentsline {subsubsection}{\numberline {1.3.5.4}$0-\pi $ qubit}{13}{subsubsection.1.3.5.4}%
+\contentsline {section}{\numberline {1.4}测量与控制系统}{13}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}稀释制冷机系统}{14}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}控制与测量信号的产生与传输系统}{15}{subsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.2.1}室温信号发生与采集系统}{15}{subsubsection.1.4.2.1}%
+\contentsline {subsubsection}{\numberline {1.4.2.2}低温传输线路系统}{16}{subsubsection.1.4.2.2}%
+\contentsline {section}{\numberline {1.5}总结}{18}{section.1.5}%
+\contentsline {chapter}{\numberline {第2章\hspace {.3em}}超导量子比特的控制与测量}{19}{chapter.2}%
+\contentsline {section}{\numberline {2.1}超导量子比特的初态制备}{19}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}被动重置}{19}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}主动重置}{19}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}超导量子比特的状态操控}{20}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}单比特$R_X(\pi /2)$门}{21}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}两比特受控Z门}{22}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}超导量子比特的状态读取}{23}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}二能级量子比特与读取腔的色散读取}{23}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}读取信号的相位移动}{24}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}量子比特状态读取结果的校准}{26}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}总结}{27}{section.2.4}%
+\contentsline {chapter}{参考文献}{29}{chapter*.22}%
+\contentsfinish 
